@@ -4,6 +4,10 @@
     <h1>My Cart</h1>
   </header>
 
+  <%if cart.empty?%>
+    <h4>Cart is empty</h4>
+    <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
+  <%else %>
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -32,7 +36,6 @@
       </tfoot>
     </table>
   </div>
-
   <div class="row">
     <div class="col-xs-12">
       <%= form_tag orders_path do %>
@@ -49,5 +52,6 @@
       <% end %>
     </div>
   </div>
+  <% end %>
 
 </section>
