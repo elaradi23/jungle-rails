@@ -132,5 +132,14 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+## REVIEWS
+
+pro1 = Product.find_or_create_by! name: 'Men\'s Classy shirt'
+
+pro1.reviews.create!({
+   user_id: 1,
+   rating: 5,
+   description: "I wear this shirt almost every other day!!"
+  })
 
 puts "DONE!"

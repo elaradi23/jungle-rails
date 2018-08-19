@@ -26,6 +26,34 @@
       </div>
     </div>
 
+    <div class="row">
+    <div class="col-sm-2">
+    <% if current_user %>
+      <h4>Add a review:</h4>
+      <%= form_for [@product, @review] do |f| %>
+        <%= f.label :rating %>:
+        <%= f.select :rating, choices=[1, 2, 3, 4, 5] %>
+        <br>
+        <%= f.label :description %>:
+        <%= f.text_field :description %><br />
+        <%= f.submit %>
+      <% end %>
+    <% end %>
+    </div>
+    </div>
+
   </article>
+  <br>
+
+  <div>
+    <h4>Reviews: </h4>
+    <% @reviews.each do |review| %>
+    <p><%= review.user.name %></p>
+    <p><strong>Rating:</strong> <%= review.rating %></p>
+    <p><em><%= review.description %></em></p>
+    <hr class="style16">
+    <br>
+    <% end %>
+  </div>
 
 </section>
